@@ -1224,6 +1224,11 @@ spec:
                         type: array
                     type: object
                 type: object
+              suspend:
+                default: false
+                description: Suspend tells the scheduler that should suspend the scheduling
+                  now. Defaults to false.
+                type: boolean
             required:
             - resource
             type: object

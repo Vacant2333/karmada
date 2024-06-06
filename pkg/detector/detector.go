@@ -479,6 +479,8 @@ func (d *ResourceDetector) ApplyPolicy(object *unstructured.Unstructured, object
 			bindingCopy.Spec.Suspension = binding.Spec.Suspension
 			bindingCopy.Spec.PreserveResourcesOnDeletion = binding.Spec.PreserveResourcesOnDeletion
 			excludeClusterPolicy(bindingCopy)
+			bindingCopy.Spec.Suspend = binding.Spec.Suspend
+			excludeClusterPolicy(bindingCopy.Labels)
 			return nil
 		})
 		if err != nil {
@@ -552,7 +554,7 @@ func (d *ResourceDetector) ApplyClusterPolicy(object *unstructured.Unstructured,
 						"try again later after binding is garbage collected, see https://github.com/karmada-io/karmada/issues/2090")
 				}
 
-				// Just update necessary fields, especially avoid modifying Spec.Clusters which is scheduling result, if already exists.
+				// Just update necessary fields, especially avoid modifying Spec. Clusters which is scheduling result, if already exists.
 				bindingCopy.Annotations = util.DedupeAndMergeAnnotations(bindingCopy.Annotations, binding.Annotations)
 				bindingCopy.Labels = util.DedupeAndMergeLabels(bindingCopy.Labels, binding.Labels)
 				bindingCopy.OwnerReferences = binding.OwnerReferences
@@ -567,6 +569,7 @@ func (d *ResourceDetector) ApplyClusterPolicy(object *unstructured.Unstructured,
 				bindingCopy.Spec.ConflictResolution = binding.Spec.ConflictResolution
 				bindingCopy.Spec.Suspension = binding.Spec.Suspension
 				bindingCopy.Spec.PreserveResourcesOnDeletion = binding.Spec.PreserveResourcesOnDeletion
+				bindingCopy.Spec.Suspend = binding.Spec.Suspend
 				return nil
 			})
 			return err
@@ -614,6 +617,7 @@ func (d *ResourceDetector) ApplyClusterPolicy(object *unstructured.Unstructured,
 				bindingCopy.Spec.ConflictResolution = binding.Spec.ConflictResolution
 				bindingCopy.Spec.Suspension = binding.Spec.Suspension
 				bindingCopy.Spec.PreserveResourcesOnDeletion = binding.Spec.PreserveResourcesOnDeletion
+				bindingCopy.Spec.Suspend = binding.Spec.Suspend
 				return nil
 			})
 			return err
