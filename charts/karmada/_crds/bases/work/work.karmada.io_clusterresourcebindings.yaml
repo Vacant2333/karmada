@@ -1173,6 +1173,12 @@ spec:
                   SchedulerName represents which scheduler to proceed the scheduling.
                   It inherits directly from the associated PropagationPolicy(or ClusterPropagationPolicy).
                 type: string
+              suspend:
+                default: false
+                description: |-
+                  Suspend tells the scheduler that should suspend the scheduling now.
+                  Defaults to false.
+                type: boolean
             required:
             - resource
             type: object
