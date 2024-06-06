@@ -20166,6 +20166,10 @@
         "schedulerName": {
           "description": "SchedulerName represents which scheduler to proceed the scheduling. It inherits directly from the associated PropagationPolicy(or ClusterPropagationPolicy).",
           "type": "string"
+        },
+        "suspend": {
+          "description": "Suspend tells the scheduler that should suspend the scheduling now. Defaults to false.",
+          "type": "boolean"
         }
       }
     },
