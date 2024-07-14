@@ -508,7 +508,6 @@ func (d *ResourceDetector) ApplyPolicy(object *unstructured.Unstructured, object
 			bindingCopy.Spec.Placement = binding.Spec.Placement
 			bindingCopy.Spec.Failover = binding.Spec.Failover
 			bindingCopy.Spec.ConflictResolution = binding.Spec.ConflictResolution
-			bindingCopy.Spec.Suspend = binding.Spec.Suspend
 			excludeClusterPolicy(bindingCopy.Labels)
 			return nil
 		})
@@ -605,7 +604,6 @@ func (d *ResourceDetector) ApplyClusterPolicy(object *unstructured.Unstructured,
 				bindingCopy.Spec.Placement = binding.Spec.Placement
 				bindingCopy.Spec.Failover = binding.Spec.Failover
 				bindingCopy.Spec.ConflictResolution = binding.Spec.ConflictResolution
-				bindingCopy.Spec.Suspend = binding.Spec.Suspend
 				return nil
 			})
 			return err
@@ -651,7 +649,6 @@ func (d *ResourceDetector) ApplyClusterPolicy(object *unstructured.Unstructured,
 				bindingCopy.Spec.Placement = binding.Spec.Placement
 				bindingCopy.Spec.Failover = binding.Spec.Failover
 				bindingCopy.Spec.ConflictResolution = binding.Spec.ConflictResolution
-				bindingCopy.Spec.Suspend = binding.Spec.Suspend
 				return nil
 			})
 			return err
