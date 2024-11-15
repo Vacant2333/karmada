@@ -7400,6 +7400,13 @@ func schema_pkg_apis_work_v1alpha2_TaskOptions(ref common.ReferenceCallback) com
 				Description: "TaskOptions represents options for GracefulEvictionTasks.",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
+					"purgeMode": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
 					"producer": {
 						SchemaProps: spec.SchemaProps{
 							Default: "",
@@ -7434,7 +7441,7 @@ func schema_pkg_apis_work_v1alpha2_TaskOptions(ref common.ReferenceCallback) com
 						},
 					},
 				},
-				Required: []string{"producer", "reason", "message", "gracePeriodSeconds", "suppressDeletion"},
+				Required: []string{"purgeMode", "producer", "reason", "message", "gracePeriodSeconds", "suppressDeletion"},
 			},
 		},
 	}
