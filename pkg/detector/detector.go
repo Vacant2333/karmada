@@ -478,9 +478,8 @@ func (d *ResourceDetector) ApplyPolicy(object *unstructured.Unstructured, object
 			bindingCopy.Spec.ConflictResolution = binding.Spec.ConflictResolution
 			bindingCopy.Spec.Suspension = binding.Spec.Suspension
 			bindingCopy.Spec.PreserveResourcesOnDeletion = binding.Spec.PreserveResourcesOnDeletion
-			excludeClusterPolicy(bindingCopy)
 			bindingCopy.Spec.Suspend = binding.Spec.Suspend
-			excludeClusterPolicy(bindingCopy.Labels)
+			excludeClusterPolicy(bindingCopy)
 			return nil
 		})
 		if err != nil {
