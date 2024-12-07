@@ -159,6 +159,12 @@ type ResourceBindingSpec struct {
 	// This setting applies to all Work objects created under this binding object.
 	// +optional
 	PreserveResourcesOnDeletion *bool `json:"preserveResourcesOnDeletion,omitempty"`
+
+	// Suspend tells the scheduler that should suspend the scheduling now. Defaults to false.
+	//
+	// +kubebuilder:default=false
+	// +optional
+	Suspend bool `json:"suspend,omitempty"`
 }
 
 // ObjectReference contains enough information to locate the referenced object inside current cluster.

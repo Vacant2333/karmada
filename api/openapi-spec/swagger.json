@@ -20306,6 +20306,10 @@
           "description": "SchedulerName represents which scheduler to proceed the scheduling. It inherits directly from the associated PropagationPolicy(or ClusterPropagationPolicy).",
           "type": "string"
         },
+        "suspend": {
+          "description": "Suspend tells the scheduler that should suspend the scheduling now. Defaults to false.",
+          "type": "boolean"
+        },
         "suspension": {
           "description": "Suspension declares the policy for suspending different aspects of propagation. nil means no suspension. no default values.",
           "$ref": "#/definitions/com.github.karmada-io.karmada.pkg.apis.policy.v1alpha1.Suspension"
